@@ -23,7 +23,7 @@ class FadeIn extends React.Component {
     onLoad = () => this.setState({ loaded: true });
 
     render() {
-        const { height, children } = this.props,
+        const { height, children, render } = this.props,
             { loaded } = this.state;
 
         return (
@@ -36,7 +36,8 @@ class FadeIn extends React.Component {
                                 ...transitionStyles[state]
                             }}
                         >
-                            {children(this.onLoad)}
+                            {children && children(this.onLoad)}
+                            {render && render(this.onLoad)}
                         </div>
                     )}
                 </Transition>
@@ -46,7 +47,8 @@ class FadeIn extends React.Component {
 }
 FadeIn.propTypes = {
     height: PropTypes.number,
-    children: PropTypes.func
+    children: PropTypes.func,
+    render: PropTypes.func
 };
 
 export { FadeIn };
