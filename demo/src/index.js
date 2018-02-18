@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
-import Prismjs from "prismjs";
-import prismStyle from "prismjs/themes/prism.css";
-import PrismCode from "react-prism";
 
 import FadeIn from "../../src";
 
@@ -35,6 +32,24 @@ const RenderPropExample = () => (
     </div>
 );
 
+const ExampleWithMetaInfo = () => (
+    <div>
+        <FadeIn height={600}>
+            {onload => (
+                <div>
+                    <h3>Photo By Ivan Dodig</h3>
+                    <img
+                        src="https://images.unsplash.com/photo-1504439904031-93ded9f93e4e?ixlib=rb-0.3.5&s=b7afd4dd0f755f1a465b617ad13da628&auto=format&fit=crop&w=976&q=80"
+                        onLoad={onload}
+                        style={{ height: 500 }}
+                    />
+                    <p>Mirca, Croatia</p>
+                </div>
+            )}
+        </FadeIn>
+    </div>
+);
+
 class Demo extends Component {
     render() {
         return (
@@ -42,6 +57,7 @@ class Demo extends Component {
                 <h1>react-lazyload-fadein examples</h1>
                 <FACExample />
                 <RenderPropExample />
+                <ExampleWithMetaInfo />
             </div>
         );
     }
