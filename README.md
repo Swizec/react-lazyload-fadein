@@ -116,7 +116,13 @@ So you can safely send request in your component's componentDidMount without wor
 
 ## Props
 
-Every prop from [`react-lazyload`](https://github.com/jasonslyvia/react-lazyload#props) (height, once, offset, scroll, resize, overflow, placeholder, unmuntIfInvisible, deboucne/throttle)
+Every prop from [`react-lazyload`](https://github.com/jasonslyvia/react-lazyload#props) (height, once, offset, scroll, resize, overflow, placeholder, unmuntIfInvisible, debounce/throttle)
+
+## offset
+
+Type: Number, Default: 150
+
+Say if you want to preload a component N pixels below the viewport. I found 150px to be a good default to give components some time to load before users reach them.
 
 ### render
 

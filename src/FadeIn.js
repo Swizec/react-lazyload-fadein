@@ -23,11 +23,15 @@ class FadeIn extends React.Component {
     onLoad = () => this.setState({ loaded: true });
 
     render() {
-        const { height, children, render } = this.props,
+        const { height, children, render, offset } = this.props,
             { loaded } = this.state;
 
         return (
-            <LazyLoad height={height} offset={150}>
+            <LazyLoad
+                height={height}
+                offset={typeof offset === "undefined" ? 150 : offset}
+                {...this.props}
+            >
                 <Transition in={loaded} timeout={duration}>
                     {state => (
                         <div
