@@ -1,6 +1,6 @@
 {
     "name": "react-lazyload-fadein",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A React component to lazyload children with a nice fadein effect",
     "main": "lib/index.js",
     "module": "es/index.js",
