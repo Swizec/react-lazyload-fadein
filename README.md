@@ -2,6 +2,10 @@
 
 Lazyload your React component and nicely fade in when it's ready.
 
+[![](https://i.imgur.com/a/Lqb2m.gif)](https://react-lazyload-fadein.now.sh/)
+
+[Try the demo](https://react-lazyload-fadein.now.sh/)
+
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
 [![Coveralls][coveralls-badge]][coveralls]
