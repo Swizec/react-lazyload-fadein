@@ -30,8 +30,14 @@
         "chroma-js": "^1.3.6",
         "d3": "^4.13.0",
         "nwb": "0.21.x",
+        "prismjs": "^1.11.0",
         "react": "^16.2.0",
-        "react-dom": "^16.2.0"
+        "react-dom": "^16.2.0",
+        "react-github-fork-ribbon": "^0.5.1",
+        "react-prism": "^4.3.2",
+        "styled-components": "^3.1.6",
+        "typography": "^0.16.6",
+        "typography-theme-elk-glen": "^0.16.9"
     },
     "author": "",
     "homepage": "",

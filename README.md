@@ -1,6 +1,6 @@
 # react-lazyload-fadein
 
-Lazyload your component and nicely fade in when it's ready.
+Lazyload your React component and nicely fade in when it's ready.
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
@@ -17,7 +17,7 @@ Lazyload your component and nicely fade in when it's ready.
 
 You have a slow component like a large image or complex widget, but want to keep your webapp fast.
 
-You could use `react-lazyload` to render that component only when it's on screen, but it looks weird when it just pops up. You can add a CSS transition, but it's over before your image loads, so it still pops into view abruptly.
+You could use `react-lazyload` to render that component only when it's on screen, but it looks weird when your component just pops up. You can add a CSS transition, but it's over before your component loads, so it still pops into view abruptly.
 
 ## This solution
 
@@ -67,18 +67,16 @@ If you prefer render props, you can use those as well. Everything else works the
 
 ```javascript
 const RenderProp = () => (
-    <div>
-        <FadeIn
-            height={600}
-            render={onload => (
-                <img
-                    src="https://images.unsplash.com/photo-1508606572321-901ea443707f?ixlib=rb-0.3.5&s=445c447b4e24f8ffa34df0c0edb2d2bc&auto=format&fit=crop&w=932&q=80"
-                    onLoad={onload}
-                    style={{ height: 600 }}
-                />
-            )}
-        />
-    </div>
+    <FadeIn
+        height={600}
+        render={onload => (
+            <img
+                src="https://images.unsplash.com/photo-1508606572321-901ea443707f?ixlib=rb-0.3.5&s=445c447b4e24f8ffa34df0c0edb2d2bc&auto=format&fit=crop&w=932&q=80"
+                onLoad={onload}
+                style={{ height: 600 }}
+            />
+        )}
+    />
 );
 ```
 
@@ -86,21 +84,19 @@ Your render function can be anything. Add some meta info to your image that fade
 
 ```javascript
 const WithMetaInfo = () => (
-    <div>
-        <FadeIn height={600}>
-            {onload => (
-                <div>
-                    <h3>Photo By Ivan Dodig</h3>
-                    <img
-                        src="https://images.unsplash.com/photo-1504439904031-93ded9f93e4e?ixlib=rb-0.3.5&s=b7afd4dd0f755f1a465b617ad13da628&auto=format&fit=crop&w=976&q=80"
-                        onLoad={onload}
-                        style={{ height: 500 }}
-                    />
-                    <p>Mirca, Croatia</p>
-                </div>
-            )}
-        </FadeIn>
-    </div>
+    <FadeIn height={600}>
+        {onload => (
+            <div>
+                <h3>Photo By Ivan Dodig</h3>
+                <img
+                    src="https://images.unsplash.com/photo-1504439904031-93ded9f93e4e?ixlib=rb-0.3.5&s=b7afd4dd0f755f1a465b617ad13da628&auto=format&fit=crop&w=976&q=80"
+                    onLoad={onload}
+                    style={{ height: 500 }}
+                />
+                <p>Mirca, Croatia</p>
+            </div>
+        )}
+    </FadeIn>
 );
 ```
 
@@ -113,11 +109,9 @@ class PopulationChart extends Component {
 }
 
 const Dataviz = () => (
-    <div>
-        <FadeIn height={600}>
-            {onload => <PopulationChart onLoad={onload} />}
-        </FadeIn>
-    </div>
+    <FadeIn height={600}>
+        {onload => <PopulationChart onLoad={onload} />}
+    </FadeIn>
 );
 ```
 
