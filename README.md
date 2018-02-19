@@ -2,7 +2,7 @@
 
 Lazyload your React component and nicely fade in when it's ready.
 
-[![](https://i.imgur.com/PC5FZx3.gif)](https://react-lazyload-fadein.now.sh/)
+[![](https://github.com/Swizec/react-lazyload-fadein/blob/master/react-lazyload-fadein.gif?raw=true)](https://react-lazyload-fadein.now.sh/)
 
 [Try the demo](https://react-lazyload-fadein.now.sh/)
 
