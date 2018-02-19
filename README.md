@@ -43,9 +43,12 @@ In both cases `<FadeIn>` passes an `onLoad` callback to your render method so yo
 ```javascript
 import React from "react";
 import FadeIn from "react-lazyload-fadein";
+```
 
-// Pass a function as children to specify rendering. Use the onload callback to start the fadein effect
-const FACExample = () => (
+Pass a function as children to specify rendering. Use the onload callback to start the fadein effect
+
+```javascript
+const FunctionAsChildren = () => (
     <div>
         <FadeIn height={600}>
             {onload => (
@@ -58,9 +61,12 @@ const FACExample = () => (
         </FadeIn>
     </div>
 );
+```
 
-// Pass a render function as the render prop
-const RenderPropExample = () => (
+If you prefer render props, you can use those as well. Everything else works the same
+
+```javascript
+const RenderProp = () => (
     <div>
         <FadeIn
             height={600}
@@ -74,9 +80,12 @@ const RenderPropExample = () => (
         />
     </div>
 );
+```
 
-// You can put anything in your render function. It's all going to use the same fade in effect when you call onload
-const ExampleWithMetaInfo = () => (
+Your render function can be anything. Add some meta info to your image that fades in at the same time.
+
+```javascript
+const WithMetaInfo = () => (
     <div>
         <FadeIn height={600}>
             {onload => (
@@ -93,15 +102,37 @@ const ExampleWithMetaInfo = () => (
         </FadeIn>
     </div>
 );
+```
 
+You can even go beyond images. For example, a dataviz component that needs to load data before it renders.
+
+```javascript
+class PopulationChart extends Component {
+    // load data in componentDidMount()
+    // render chart in render()
+}
+
+const Dataviz = () => (
+    <div>
+        <FadeIn height={600}>
+            {onload => <PopulationChart onLoad={onload} />}
+        </FadeIn>
+    </div>
+);
+```
+
+You can then render those lazyloaded fadein components as usual.
+
+```javascript
 class Demo extends Component {
     render() {
         return (
             <div>
                 <h1>react-lazyload-fadein examples</h1>
-                <FACExample />
-                <RenderPropExample />
-                <ExampleWithMetaInfo />
+                <FunctionAsChildren />
+                <RenderProp />
+                <WithMetaInfo />
+                <NonImageExample />
             </div>
         );
     }

@@ -65,6 +65,8 @@ class PopulationChart extends Component {
     }
 }
 
+const Placeholder = () => <h2>Loading data ...</h2>;
+
 export const Dataviz = () => (
     <div>
         <FadeIn height={600}>
