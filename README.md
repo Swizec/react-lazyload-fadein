@@ -137,6 +137,18 @@ class Demo extends Component {
 }
 ```
 
+you can also change the duration and the easing animation.
+```javascript
+const Post = () => (
+    <FadeIn height={600} duration={100} easing={'ease-out'}>
+        {onload => (
+            <PostTitle>react-lazyload-fadein examples</PostTitle>
+            <PostBody content={content} />
+        )}
+    </FadeIn>
+);
+```
+
 ## Special Tips
 
 You should aware that your component will only be mounted when it's visible in viewport, before that a placeholder will be rendered.
@@ -146,6 +158,18 @@ So you can safely send request in your component's componentDidMount without wor
 ## Props
 
 Every prop from [`react-lazyload`](https://github.com/jasonslyvia/react-lazyload#props) (height, once, offset, scroll, resize, overflow, placeholder, unmuntIfInvisible, debounce/throttle)
+
+## duration
+
+Type: Number, Default: 500
+
+fade animation duration speed. default unit is millisecond.
+
+## easing
+
+Type: String, Default: 'ease-in-out'
+
+fade animation easing type. support easing type is [CSS transition-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)
 
 ## offset
 
