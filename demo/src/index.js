@@ -12,6 +12,7 @@ import { FunctionAsChildren } from "./FunctionAsChildren";
 import { RenderProp } from "./RenderProp";
 import { WithMetaInfo } from "./WithMetaInfo";
 import { Dataviz } from "./Dataviz";
+import { CustomDuration } from "./CustomDuration";
 
 const typography = new Typography(elkGlenTheme);
 typography.injectStyles();
@@ -131,6 +132,28 @@ class PopulationChart extends Component {
 const Dataviz = () => (
     <FadeIn height={600}>
         {onload => <PopulationChart onLoad={onload} />}
+    </FadeIn>
+);
+                    `}
+                    </PrismCode>
+                    <h3>Set custom duration and easing</h3>
+                    <CustomDuration />
+                    <p>
+                        You can set a custom transition <code>duration</code>{" "}
+                        and <code>easing</code> function. Make the fade-in
+                        effect better fit your style.
+                    </p>
+                    <PrismCode className="language-javascript" component="pre">
+                        {`
+const CustomDuration = () => (
+    <FadeIn height={600} duration={100} easing={"ease-in-out"}>
+        {onload => (
+            <img
+                src="https://images.unsplash.com/photo-1496287437689-3c24997cca99?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a169e6231d3c18c056f265baeac8dc02&auto=format&fit=crop&w=1233&q=80"
+                onLoad={onload}
+                style={{ height: 600 }}
+            />
+        )}
     </FadeIn>
 );
                     `}
