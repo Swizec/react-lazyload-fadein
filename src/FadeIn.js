@@ -3,13 +3,11 @@ import LazyLoad from "react-lazyload";
 import PropTypes from "prop-types";
 import { Transition } from "react-transition-group";
 
-const duration = 500;
-
-const defaultStyle = {
-    transition: `opacity ${duration}ms ease-in-out`,
+const getStyle = ({ duration, easing = 'ease-in-out' }) => ({
+    transition: `opacity ${duration}ms ${easing}`,
     opacity: 0,
-    display: "inline-block"
-};
+    display: 'inline-block',
+});
 
 const transitionStyles = {
     entering: { opacity: 0 },
@@ -23,7 +21,7 @@ class FadeIn extends React.Component {
     onLoad = () => this.setState({ loaded: true });
 
     render() {
-        const { height, children, render, offset, ...restProps } = this.props,
+        const { height, duration = 500, easing, children, render, offset, ...restProps } = this.props,
             { loaded } = this.state;
 
         return (
@@ -36,7 +34,7 @@ class FadeIn extends React.Component {
                     {state => (
                         <div
                             style={{
-                                ...defaultStyle,
+                                ...getStyle({duration, easing}),
                                 ...transitionStyles[state]
                             }}
                         >
@@ -51,6 +49,8 @@ class FadeIn extends React.Component {
 }
 FadeIn.propTypes = {
     height: PropTypes.number,
+    duration: PropTypes.number,
+    easing: PropTypes.string,
     children: PropTypes.func,
     render: PropTypes.func
 };
