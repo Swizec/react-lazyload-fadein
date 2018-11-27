@@ -48,7 +48,10 @@ class FadeIn extends React.Component {
     }
 }
 FadeIn.propTypes = {
-    height: PropTypes.number,
+    height:  PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+    ]),
     duration: PropTypes.number,
     easing: PropTypes.string,
     children: PropTypes.func,
